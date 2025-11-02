@@ -7,7 +7,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-  - task: UsePythonVersion@1
+  - task: UsePythonVersion@2
     inputs:
       versionSpec: '3.12'
     displayName: 'Use Python 3.12'
