@@ -12,18 +12,28 @@ steps:
       echo "Agent OS: $(Agent.OS)"
       echo "Agent name: $(Agent.MachineName)"
     displayName: 'Show environment'
+
   - script: |
       echo "Using Python 3.12"
       python3.12 --version
     displayName: 'Check Python version'
 
   - script: |
+      echo "Creating venv"
+      python3.12 -m venv venv
+      echo "venv created"
+    displayName: 'Create venv'
+
+  - script: |
       echo "Installing dependencies..."
-      pip3.12 install -r requirements.txt
+      source venv/bin/activate
+      pip install --upgrade pip
+      pip install -r requirements.txt
     displayName: 'Install dependencies'
 
   - script: |
       echo "Building the project..."
+      source venv/bin/activate
       pytest test_hello_world.py -v
       echo "Build completed successfully."
     displayName: 'Run tests'
