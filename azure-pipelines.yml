@@ -1,6 +1,7 @@
 # azure-pipelines.yml
 
 #This is the self-hosted pipeline
+#Fresh VM from Microsoft
 trigger:
   - main
 
