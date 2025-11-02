@@ -1,0 +1,24 @@
+# azure-pipelines.yml
+
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: UsePythonVersion@1
+    inputs:
+      versionSpec: '3.12'
+    displayName: 'Use Python 3.12'
+
+  - script: |
+      echo "Installing dependencies..."
+      pip install -r requirements.txt
+    displayName: 'Install dependencies'
+
+  - script: |
+      echo "Building the project..."
+      pytest test_hello_world.py -v
+      echo "Build completed successfully."
+    displayName: 'Run tests'
