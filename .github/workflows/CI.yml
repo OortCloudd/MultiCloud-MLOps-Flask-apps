@@ -33,7 +33,7 @@ jobs:
     needs: test-local
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/cheeckout@v4
+      - uses: actions/checkout@v4
       - uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
