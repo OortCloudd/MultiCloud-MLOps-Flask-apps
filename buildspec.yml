@@ -12,3 +12,4 @@ phases:
     commands:
       - echo "Building the project..."
       - pytest test_hello_world.py -v
+      - echo "Build completed successfully."
