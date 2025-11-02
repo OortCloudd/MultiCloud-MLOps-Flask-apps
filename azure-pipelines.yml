@@ -7,14 +7,14 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-  - task: UsePythonVersion@2
-    inputs:
-      versionSpec: '3.12'
-    displayName: 'Use Python 3.12'
+  - script: |
+      echo "Using Python 3.12"
+      python3.12 --version
+    displayName: 'Check Python version'
 
   - script: |
       echo "Installing dependencies..."
-      pip install -r requirements.txt
+      pip3.12 install -r requirements.txt
     displayName: 'Install dependencies'
 
   - script: |
