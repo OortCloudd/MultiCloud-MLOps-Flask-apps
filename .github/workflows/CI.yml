@@ -47,7 +47,7 @@ jobs:
           aws codebuild start-build \
             --project-name hello-world-test \
             --source-version ${{ github.sha }}
-  deploy-gcp:
+  test-gcp:
     needs: test-local
     runs-on: ubuntu-latest
     steps:
@@ -62,10 +62,6 @@ jobs:
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
       
-      - name: Deploy to Cloud Run
+      - name: Trigger Cloud Build
         run: |
-          gcloud run deploy hello-world \
-            --source . \
-            --region europe-west1 \
-            --platform managed \
-            --allow-unauthenticated
+          gcloud builds submit --config cloudbuild.yaml

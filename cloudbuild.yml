@@ -1,0 +1,12 @@
+# cloudbuild.yaml
+steps:
+  - name: 'python:3.12'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo "Installing dependencies..."
+        pip install -r requirements.txt
+        echo "Running tests..."
+        pytest test_hello_world.py -v
+        echo "Tests completed successfully."
