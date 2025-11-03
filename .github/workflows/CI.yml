@@ -1,5 +1,9 @@
 # .github/workflows/ci.yml
 
+
+#Honestly, next time I'll add Azure too
+#The reason Azure is not added is because of the native treatment of PR.
+#But for simplicity I believe it may be easier to just do test-azure, I don't know.
 name: CI - Test on Multiple Cloud platforms
 
 on:
